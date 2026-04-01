@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Про меня · Алёна Павленко</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --teal:#0A817D;
+  --teal-deep:#07615e;
+  --sea:#52ACA1;
+  --gold:#DAA520;
+  --vanilla:#FFF5E1;
+  --white:#FFFFFF;
+  --text:#1a2e2d;
+  --text-soft:rgba(26,46,45,.6);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Inter',-apple-system,sans-serif;
+}
+
+body{
+  font-family:var(--sans);
+  background:var(--vanilla);
+  color:var(--text);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ═══ HERO ═══ */
+.hero{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding:60px 24px 48px;
+  position:relative;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  width:500px;height:500px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(10,129,125,.06),transparent 70%);
+  top:-200px;left:50%;transform:translateX(-50%);
+  pointer-events:none;
+}
+
+.back{
+  position:absolute;
+  top:24px;left:24px;
+  font-size:.82rem;
+  color:var(--sea);
+  text-decoration:none;
+  display:flex;align-items:center;gap:6px;
+  font-weight:500;
+}
+.back:hover{color:var(--teal)}
+.back svg{width:16px;height:16px}
+
+.hero-photo{
+  width:160px;height:160px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid rgba(82,172,161,.25);
+  margin-bottom:28px;
+  box-shadow:0 12px 40px rgba(10,129,125,.1);
+}
+
+.hero-name{
+  font-family:var(--serif);
+  font-size:2.4rem;
+  font-weight:500;
+  color:var(--teal-deep);
+  margin-bottom:8px;
+}
+
+.hero-role{
+  font-size:.9rem;
+  color:var(--text-soft);
+  letter-spacing:.04em;
+  margin-bottom:24px;
+}
+
+.hero-intro{
+  font-size:1.05rem;
+  color:var(--text);
+  line-height:1.7;
+  max-width:560px;
+  margin:0 auto;
+}
+.hero-intro strong{color:var(--teal)}
+
+/* ═══ SECTIONS ═══ */
+.content{
+  max-width:620px;
+  margin:0 auto;
+  padding:0 24px 60px;
+}
+
+.block{
+  margin-top:48px;
+}
+
+.block-label{
+  font-size:.72rem;
+  font-weight:600;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--sea);
+  margin-bottom:16px;
+}
+
+.block p{
+  font-size:1rem;
+  margin-bottom:16px;
+  line-height:1.7;
+}
+.block p:last-child{margin-bottom:0}
+.block p strong{color:var(--teal)}
+.block p a{color:var(--teal);text-decoration:underline;text-underline-offset:3px}
+.block p a:hover{color:var(--teal-deep)}
+
+.block-photo{
+  margin:32px 0;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(82,172,161,.12);
+}
+.block-photo img{
+  width:100%;
+  display:block;
+}
+
+/* ═══ CARDS (сертификаты) ═══ */
+.cert-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-top:16px;
+}
+.cert-card{
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid rgba(82,172,161,.12);
+  background:var(--white);
+}
+.cert-card img{width:100%;display:block}
+
+/* ═══ PRODUCTS ═══ */
+.products{
+  margin-top:60px;
+  padding-top:48px;
+  border-top:1px solid rgba(82,172,161,.15);
+}
+
+.products-title{
+  font-family:var(--serif);
+  font-size:1.6rem;
+  font-weight:500;
+  color:var(--teal-deep);
+  margin-bottom:24px;
+  text-align:center;
+}
+
+.product-links{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.product-link{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:18px 24px;
+  background:rgba(255,255,255,.8);
+  border:1px solid rgba(82,172,161,.15);
+  border-radius:16px;
+  text-decoration:none;
+  color:var(--text);
+  transition:all .2s;
+}
+.product-link:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(10,129,125,.08);
+  border-color:rgba(82,172,161,.3);
+}
+
+.pl-icon{
+  width:40px;height:40px;
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  background:rgba(10,129,125,.08);
+  color:var(--teal);
+}
+.pl-icon svg{width:20px;height:20px}
+
+.pl-text{display:flex;flex-direction:column;gap:2px}
+.pl-title{font-weight:600;font-size:.92rem}
+.pl-desc{font-size:.76rem;color:var(--text-soft)}
+
+.pl-arrow{margin-left:auto;color:rgba(82,172,161,.35);flex-shrink:0}
+.pl-arrow svg{width:16px;height:16px}
+
+/* ═══ FOOTER ═══ */
+footer{
+  margin-top:60px;
+  padding:40px 24px;
+  text-align:center;
+  border-top:1px solid rgba(82,172,161,.1);
+}
+
+.footer-socials{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  margin-bottom:16px;
+}
+.footer-social{
+  width:44px;height:44px;
+  border-radius:50%;
+  background:rgba(10,129,125,.06);
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;
+  color:var(--teal);
+  transition:all .2s;
+}
+.footer-social:hover{
+  background:var(--teal);
+  color:var(--white);
+}
+.footer-social svg{width:18px;height:18px}
+
+.footer-copy{
+  font-size:.75rem;
+  color:var(--text-soft);
+}
+
+@media(max-width:600px){
+  .hero{padding:48px 20px 36px}
+  .hero-name{font-size:2rem}
+  .hero-photo{width:130px;height:130px}
+  .cert-grid{grid-template-columns:1fr}
+  .content{padding:0 20px 48px}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <a href="links.html" class="back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    Назад
+  </a>
+  <img src="https://pavlenkophysics.github.io/ifs-for-life/images/DSCF3617%20cropped1.jpg" alt="Алёна Павленко" class="hero-photo">
+  <h1 class="hero-name">Алёна Павленко</h1>
+  <div class="hero-role">IFS-практик · PhD</div>
+  <p class="hero-intro">Когда-то я поняла, как сильно <strong>бессознательные паттерны влияют на жизнь</strong>, и начала искать как с ними работать. Больше 10 лет я пробовала разное: терапия, ретриты, книги по психологии — знаний становилось больше, а в жизнь внедрялись лишь крупицы.</p>
+</section>
+
+<div class="content">
+
+  <p style="font-size:1.05rem;line-height:1.7;margin-top:8px">IFS зацепил меня идеей, что у каждого паттерна есть благое намерение. А потом незаметно произошло главное: внутренние зажимы стали <strong style="color:var(--teal)">расслабляться быстрее</strong>, а отношения с собой и с близкими — <strong style="color:var(--teal)">разворачиваться свободнее</strong>. Сейчас я вижу такие же трансформации у тех, кому помогаю интегрировать IFS в индивидуальной работе.</p>
+
+  <div class="block">
+    <div class="block-label">Карьера</div>
+    <p>По первой профессии я <strong>физик, PhD</strong>. Прошла аспирантуру в Германии, работала в США и Великобритании. Потом перешла в <strong>стратегический консалтинг (Deloitte)</strong> в Голландии. Мне всегда было интересно разбираться в сложных системах и искать решения, которые работают.</p>
+  </div>
+
+  <div class="block">
+    <div class="block-label">Путь к практике</div>
+    <p>Я не планировала становиться практиком. Сначала были годы своей терапии, а затем <strong>350+ часов телесной практики</strong> — баня, массаж, работа с телом и состоянием. Потом в моей жизни появился IFS — работа с частями и Self. Метод глубоко изменил мою жизнь и то, как я чувствую себя в ней. Со временем ко мне стали обращаться люди: сначала по телу и состоянию, а потом и по IFS.</p>
+  </div>
+
+  <div class="block">
+    <div class="block-label">Обучение IFS</div>
+    <p>IFS я узнала через <strong><a href="https://www.healingandawakening.institute/about" target="_blank" rel="noopener">Гэтри Сайена</a></strong> — он ученик Ричарда Шварца и один из ведущих преподавателей Evolving IFS, включая работу с состоянием и Self. У него больше <strong>15 лет</strong> преподавания и больше <strong>10 000 часов</strong> с клиентами. Я <strong>два года училась у него</strong>, а также прошла курс Ричарда Шварца IFS and Spirituality.</p>
+    <div class="block-photo">
+      <img src="https://pavlenkophysics.github.io/ifs-for-life/images/photo_2026-03-03_09-41-252.jpg" alt="Алёна Павленко и Гэтри Сайен">
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="block-label">Сейчас</div>
+    <p>Академия и консалтинг дали мне <strong>системное мышление</strong>, а телесная практика — <strong>умение слышать состояние и быть в теле</strong>. В <a href="https://alumni.ifscourse.com/" target="_blank" rel="noopener">IFS Academy</a> я эксперт и куратор: проектирую, как мы доносим материал до студентов и выстраиваем процесс интеграции знаний, фасилитирую практические сессии, провожу воркшопы и вебинары вместе с Гэтри.</p>
+    <p>Параллельно веду <a href="https://alena-pavlenko-ifs.netlify.app/" target="_blank" rel="noopener">индивидуальную работу по IFS</a> и продолжаю телесную практику.</p>
+  </div>
+
+  <div class="block">
+    <div class="block-label">Сертификаты</div>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <img src="https://pavlenkophysics.github.io/ifs-for-life/images/cert-level1.png" alt="Сертификат Level 1 IFS Coaching Course">
+      </div>
+      <div class="cert-card">
+        <img src="https://pavlenkophysics.github.io/ifs-for-life/images/cert-evolving-ifs.png" alt="Сертификат Evolving IFS">
+      </div>
+    </div>
+  </div>
+
+  <!-- Продукты -->
+  <div class="products">
+    <div class="products-title">Чем я могу помочь</div>
+    <div class="product-links">
+
+      <a href="https://alena-pavlenko-ifs.netlify.app/" target="_blank" rel="noopener" class="product-link">
+        <div class="pl-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div class="pl-text">
+          <span class="pl-title">Индивидуальная работа по IFS</span>
+          <span class="pl-desc">Сессии один на один</span>
+        </div>
+        <div class="pl-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></div>
+      </a>
+
+      <a href="https://ifs-for-life.netlify.app/" target="_blank" rel="noopener" class="product-link">
+        <div class="pl-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+        </div>
+        <div class="pl-text">
+          <span class="pl-title">Группа «Части целого»</span>
+          <span class="pl-desc">Практическая группа по IFS · 8 недель</span>
+        </div>
+        <div class="pl-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></div>
+      </a>
+
+      <a href="https://inner-critic.netlify.app/" target="_blank" rel="noopener" class="product-link">
+        <div class="pl-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div class="pl-text">
+          <span class="pl-title">«Дорогой критик, нам надо поговорить»</span>
+          <span class="pl-desc">Группа по внутреннему критику · 4 встречи</span>
+        </div>
+        <div class="pl-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></div>
+      </a>
+
+      <a href="https://ifs-for-life.netlify.app/webinar.html" target="_blank" rel="noopener" class="product-link">
+        <div class="pl-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        </div>
+        <div class="pl-text">
+          <span class="pl-title">Бесплатный вебинар</span>
+          <span class="pl-desc">IFS для жизни · 8 апреля, 12:00 МСК</span>
+        </div>
+        <div class="pl-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></div>
+      </a>
+
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-socials">
+    <a href="https://t.me/Alena_Pavlenko_IFS" target="_blank" rel="noopener" class="footer-social" title="Telegram-канал">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/alena_pavlenko_ifs" target="_blank" rel="noopener" class="footer-social" title="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </a>
+    <a href="https://t.me/Alena_Pavlenko_PhD" target="_blank" rel="noopener" class="footer-social" title="Написать в Telegram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </a>
+  </div>
+  <p class="footer-copy">Алёна Павленко · IFS-практик</p>
+</footer>
+
+</body>
+</html>
