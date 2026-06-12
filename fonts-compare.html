@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Хаб — сравнение шрифтов</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#eef4f1;font-family:-apple-system,'Segoe UI',sans-serif;color:#162422;padding:24px 16px 70px}
+  .intro{max-width:1180px;margin:0 auto 22px;text-align:center}
+  .intro h1{font-size:1.3rem;color:#0d5c63;margin-bottom:6px}
+  .intro p{font-size:.9rem;color:#3d514f;line-height:1.6;max-width:680px;margin:0 auto}
+  .row{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .col{background:#fff;border:1px solid rgba(126,184,181,.4);border-radius:16px;overflow:hidden;box-shadow:0 6px 24px rgba(13,92,99,.1);display:flex;flex-direction:column}
+  .col-head{padding:12px 16px;background:#0d5c63;color:#f5faf8;display:flex;align-items:baseline;gap:8px}
+  .col-head .num{font-size:.72rem;font-weight:700;background:rgba(232,232,88,.2);color:#e8e858;padding:2px 9px;border-radius:20px}
+  .col-head .nm{font-size:1rem;font-weight:600}
+  iframe{width:100%;height:1180px;border:0;display:block;background:#fff}
+  @media(max-width:920px){.row{grid-template-columns:1fr}iframe{height:900px}}
+</style>
+</head>
+<body>
+  <div class="intro">
+    <h1>Три шрифта для хаба — рядом</h1>
+    <p>Одна и та же страница хаба тремя шрифтами (каждый применён ко всей странице, без засечек, без курсива и коричневого). Скажи номер или название — поставлю его на основной хаб.</p>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="col-head"><span class="num">1</span><span class="nm">Onest</span></div>
+      <iframe src="index-font-onest.html" title="Onest" loading="lazy"></iframe>
+    </div>
+    <div class="col">
+      <div class="col-head"><span class="num">2</span><span class="nm">Golos Text</span></div>
+      <iframe src="index-font-golos.html" title="Golos Text" loading="lazy"></iframe>
+    </div>
+    <div class="col">
+      <div class="col-head"><span class="num">3</span><span class="nm">Rubik</span></div>
+      <iframe src="index-font-rubik.html" title="Rubik" loading="lazy"></iframe>
+    </div>
+  </div>
+</body>
+</html>
